@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_apps/data/notifiers.dart';
-import 'package:flutter_apps/views/widget_tree.dart';
+import 'package:flutter_apps/views/pages/welcome_page.dart';
+// import 'package:flutter_apps/views/widget_tree.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,6 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return WidgetTree();
+    return WelcomePage();
   }
 }

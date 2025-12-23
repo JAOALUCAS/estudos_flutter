@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_apps/data/notifiers.dart';
 import 'package:flutter_apps/views/pages/home_page.dart';
 import 'package:flutter_apps/views/pages/profile_page.dart';
+import 'package:flutter_apps/views/pages/settings_page.dart';
 import 'package:flutter_apps/widgets/navbar_widget.dart';
 
 String? title = 'Flutter Map';
@@ -36,9 +37,21 @@ class WidgetTree extends StatelessWidget {
                     : Icons.light_mode
                   );
               },)
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.push(context, // pushReplacement
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SettingsPage(title: 'Settings Qwe',);
+                    },
+                  )
+                );
+              }, 
+              icon: Icon(Icons.settings)
             )
           ],
-          backgroundColor: Colors.black87,
+          // backgroundColor: Colors.black87,
         ),
         drawer: Drawer( // SafeArea
           child: Column(
