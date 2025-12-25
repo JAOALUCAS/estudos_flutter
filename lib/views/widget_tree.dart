@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_apps/data/constants.dart';
 import 'package:flutter_apps/data/notifiers.dart';
 import 'package:flutter_apps/views/pages/home_page.dart';
 import 'package:flutter_apps/views/pages/profile_page.dart';
 import 'package:flutter_apps/views/pages/settings_page.dart';
 import 'package:flutter_apps/widgets/navbar_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 String? title = 'Flutter Map';
 
@@ -25,8 +27,12 @@ class WidgetTree extends StatelessWidget {
           // leading: Icon(Icons.abc),
           actions: [
             IconButton(
-              onPressed: () {
+              onPressed: () async {
                 isLigthModeNotifier.value = !isLigthModeNotifier.value;
+                final SharedPreferences prefs = 
+                  await SharedPreferences.getInstance();
+
+                await prefs.setBool(KConstant.themeModeKey, isLigthModeNotifier.value);
               }, 
               icon: ValueListenableBuilder(
                 valueListenable: isLigthModeNotifier, 

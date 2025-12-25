@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_apps/data/constants.dart';
 import 'package:flutter_apps/data/notifiers.dart';
 import 'package:flutter_apps/views/pages/welcome_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:flutter_apps/views/widget_tree.dart';
 
 void main() {
@@ -13,10 +15,27 @@ void main() {
 // stateful: change
 // setState to change
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  
+  @override
+  void initState() {
+    initThemeMode();
+    super.initState();
+  }
+
+  void initThemeMode() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final bool? theme = await prefs.getBool(KConstant.themeModeKey);
+    isLigthModeNotifier.value = theme ??false;
+  }
+
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: isLigthModeNotifier, 

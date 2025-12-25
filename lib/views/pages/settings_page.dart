@@ -190,9 +190,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 OutlinedButton(
                   onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFf368e0)
-                  ),
                   child: Text('Click me!')
                 ),
                 CloseButton(),
