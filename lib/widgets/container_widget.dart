@@ -18,21 +18,24 @@ class ContainerWidget extends StatefulWidget {
 class _ContainerWidgetState extends State<ContainerWidget> {
   @override
   Widget build(BuildContext context) {
-    return Card(              
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Title Card',
-                    style: KTextStyle.titlePinkAccentText,
-                  ),
-                  Text('Description Card',
-                    style: KTextStyle.descriptionTealText,
-                  ),
-                ],
+    return SizedBox(
+          width: double.infinity,
+          child: Card(              
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Title Card',
+                      style: KTextStyle.titlePinkAccentText,
+                    ),
+                    Text('Description Card',
+                      style: KTextStyle.descriptionTealText,
+                    ),
+                  ],
+                ),
               ),
             ),
-          );
+    );
   }
 }

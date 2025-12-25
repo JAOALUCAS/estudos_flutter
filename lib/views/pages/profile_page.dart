@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_apps/data/notifiers.dart';
+import 'package:flutter_apps/views/pages/expanded_and_flexible.dart';
 import 'package:flutter_apps/views/pages/welcome_page.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -16,6 +17,16 @@ class ProfilePage extends StatelessWidget {
             radius: 30.0,
             backgroundImage: AssetImage('assets/images/wallpaper-de-paisagem-em-design-plano_74890-42.avif'),
           ),
+          TextButton(onPressed: () {
+            Navigator.push(
+              context, 
+              MaterialPageRoute(
+                builder: (context) {
+                  return ExpandedAndFlexible();
+                },
+              )
+            );
+          }, child: Text('Expanded and flexibe')),
           ListTile(    
             title: Text('Logout'),
             onTap: () {
@@ -29,7 +40,7 @@ class ProfilePage extends StatelessWidget {
                 )
               );
             },
-          )
+          ),
         ],
       ),
     );
